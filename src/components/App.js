@@ -5,7 +5,12 @@ import Playlist from './Playlist';
 import './App.css';
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([
+    { id: 1, name: 'Song 1', artist: 'Artist 1', album: 'Album 1' },
+    { id: 2, name: 'Song 2', artist: 'Artist 2', album: 'Album 2' },
+    { id: 3, name: 'Song 3', artist: 'Artist 3', album: 'Album 3' },
+  ]);
+
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistName, setPlaylistName] = useState('New Playlist');
 
@@ -25,12 +30,13 @@ function App() {
 
   const savePlaylist = () => {
     const trackURIs = playlistTracks.map(track => track.uri);
-    // Implement Spotify saving functionality here
+    console.log(`Saving playlist: ${playlistName} with tracks: ${trackURIs}`);
+    // Implement actual Spotify saving functionality here
   };
 
   const search = (term) => {
-    // Implement search functionality here
-    setSearchResults([...searchResults, term]); // Mock result
+    console.log(`Searching for ${term}`);
+    // Implement search functionality with Spotify API here
   };
 
   return (
